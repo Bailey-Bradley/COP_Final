@@ -19,7 +19,8 @@ public:
 
     // Returns the edge between this vertex and the one with the given label if that edge exists
     // Returns NULL if it doesn't exist
-    Edge* getEdge(std::string label, int weight);
+    Edge* getEdge(std::string label);
+    Edge* getEdge(const Vertex& vertex);
 
     // Pretty much unintelligently just adds the edge pointer to the PQ
     void addEdge(Edge*);
