@@ -12,6 +12,8 @@ class Vertex {
 
 public:
 
+    Vertex(std::string);
+
     const std::string& getLabel();
     const OUR_PQ<Edge*>& getEdges();
 
