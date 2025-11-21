@@ -1,4 +1,5 @@
 #include <string>
+#include <memory>
 
 #include "Edge.h"
 
@@ -12,6 +13,10 @@ class Vertex {
 public:
 
     const std::string& getLabel();
-    const OUR_PQ<Edge>& getEdges();
+    const OUR_PQ<Edge*>& getEdges();
 
+    void addEdge(Edge*);
+    void removeEdge(Edge*);
+
+    ~Vertex();
 };
