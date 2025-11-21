@@ -9,6 +9,8 @@ class Edge {
 
 public:
 
+    Edge(Vertex*, Vertex*, unsigned long);
+
     // When passed one of the vertexes on an edge, it returns the other. Returns NULL if you supplied a vertex that it doesn't even have
     Vertex* getOpposite(const Vertex& vertex);
 
