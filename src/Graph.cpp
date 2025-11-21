@@ -16,7 +16,8 @@ void Graph::addEdge(std::string label1, std::string label2, unsigned long weight
         vertices.at(label1);
         vertices.at(label2);
 
-    } catch (const std::out_of_range& e) {
+    }
+    catch (const std::out_of_range& e) {
         return;
     }
 
@@ -32,11 +33,26 @@ void Graph::addEdge(std::string label1, std::string label2, unsigned long weight
 }
 
 void Graph::removeVertex(std::string label) {
-
+    vertices.erase(label);
 }
 
 void Graph::removeEdge(std::string label1, std::string label2) {
+    try {
+        vertices.at(label1);
+        vertices.at(label2);
+    } catch (const std::out_of_range& e) {
+        return;
+    }
 
+    Vertex& vertex1 = vertices[label1];
+    Vertex& vertex2 = vertices[label2];
+
+    if (vertex1.isAdjacentTo(vertex2)) {
+        Edge* edge = vertex1.getEdge(vertex2);
+
+        vertex1.removeEdge(edge);
+        vertex2.removeEdge(edge);
+    }
 }
 
 unsigned long Graph::shortestPath(std::string startLabel, std::vector<std::string> &path) {
