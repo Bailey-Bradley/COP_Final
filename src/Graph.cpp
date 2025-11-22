@@ -57,6 +57,10 @@ struct VertexPathNode {
     Vertex *previous_vertex;
     Vertex *vertex;
     unsigned long cost;
+
+    bool operator==(const VertexPathNode& vpn) const {
+        return (vpn.previous_vertex == previous_vertex) && (vpn.vertex == vertex) && (vpn.cost == cost);
+    }
 };
 
 bool compareVertices(VertexPathNode v1, VertexPathNode v2) {
