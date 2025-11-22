@@ -5,3 +5,5 @@ file(GLOB SRC_FILES "${CMAKE_SOURCE_DIR}/src/*.cpp")
 
 add_executable(cop_final ${SRC_FILES})
 target_include_directories(cop_final PRIVATE "${CMAKE_SOURCE_DIR}/src")
+
+unset(SRC_FILES)
