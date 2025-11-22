@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <list>
 
-template<typename T, typename C>
+template<typename T, bool (&isLess)(const T&, const T&)>
 class PriorityQueue {
 
     std::list<T> queue;
@@ -19,32 +19,32 @@ public:
     const std::list<T>& getQueue();
 };
 
-template <typename T, typename C>
-void PriorityQueue<T, C>::enqueue(T newItem) {
+template<typename T, bool (&isLess)(const T&, const T&)>
+void PriorityQueue<T, isLess>::enqueue(T newItem) {
     queue.push_back(newItem);
 }
 
-template <typename T, typename C>
-T PriorityQueue<T, C>::min() {
+template<typename T, bool (&isLess)(const T&, const T&)>
+T PriorityQueue<T, isLess>::min() {
     auto lowest_priority = std::min_element(queue.begin(), queue.end(), isLess);
 
     return *lowest_priority;
 }
 
-template <typename T, typename C>
-T PriorityQueue<T, C>::dequeue() {
+template<typename T, bool (&isLess)(const T&, const T&)>
+T PriorityQueue<T, isLess>::dequeue() {
     T lowest_priority = min();
     queue.remove(lowest_priority);
 
     return *lowest_priority;
 }
 
-template<typename T, typename C>
-const std::list<T>& PriorityQueue<T, C>::getQueue() {
+template<typename T, bool (&isLess)(const T&, const T&)>
+const std::list<T>& PriorityQueue<T, isLess>::getQueue() {
     return queue;
 }
 
-template<typename T, typename C>
-void PriorityQueue<T, C>::remove(T element) {
+template<typename T, bool (&isLess)(const T&, const T&)>
+void PriorityQueue<T, isLess>::remove(T element) {
     queue.remove(element);
 }
