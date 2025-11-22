@@ -2,20 +2,21 @@
 #include <memory>
 
 #include "Edge.h"
+#include "PriorityQueue.h"
 
 class Vertex {
 
     std::string label;
     // TODO:
     // Make our own priority queue and use it to store the edges:
-    OUR_PQ<Edge*> edges;
+    PriorityQueue<Edge*, Edge::Comparator> edges;
 
 public:
 
     Vertex(std::string);
 
     const std::string& getLabel();
-    const OUR_PQ<Edge*>& getEdges();
+    const PriorityQueue<Edge*, Edge::Comparator>& getEdges();
 
     // Returns the edge between this vertex and the one with the given label if that edge exists
     // Returns NULL if it doesn't exist
