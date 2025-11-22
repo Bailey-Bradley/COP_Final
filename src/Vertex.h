@@ -1,7 +1,7 @@
 #include <string>
 #include <memory>
 
-#include "Edge.h"
+class Edge;
 #include "PriorityQueue.h"
 
 class Vertex {
