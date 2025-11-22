@@ -3,8 +3,7 @@
 #include "Graph.h"
 #include "Vertex.h"
 #include "Edge.h"
-
-class PriorityQueue {}; // THIS IS JUST TO MAKE INTELLISENSE SHUT UP WHILE WE DONT HAVE A PRIORTIY QUEUE
+#include "PriorityQueue.h"
 
 void Graph::addVertex(std::string label) {
     vertices.try_emplace(label, Vertex(label));
@@ -56,7 +55,5 @@ void Graph::removeEdge(std::string label1, std::string label2) {
 }
 
 unsigned long Graph::shortestPath(std::string startLabel, std::vector<std::string> &path) {
-    PriorityQueue pq;
-
-
+    //PriorityQueue<> pq;
 }
