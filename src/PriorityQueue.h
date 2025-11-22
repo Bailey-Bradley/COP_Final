@@ -9,7 +9,11 @@ class PriorityQueue {
 public:
 
     void enqueue(T);
+
+    T min();
+
     T dequeue();
+    void remove(T element);
 
     const std::list<T>& getQueue();
 };
