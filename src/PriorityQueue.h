@@ -17,8 +17,15 @@ public:
     T dequeue();
     void remove(T element);
 
-    const std::list<T>& getQueue();
+    int size();
+
+    const std::list<T>& getQueue() const;
 };
+
+template<typename T, bool (&isLess)(T, T)>
+int PriorityQueue<T, isLess>::size() {
+    return queue.size();
+}
 
 template<typename T, bool (&isLess)(T, T)>
 void PriorityQueue<T, isLess>::enqueue(T newItem) {
@@ -41,7 +48,7 @@ T PriorityQueue<T, isLess>::dequeue() {
 }
 
 template<typename T, bool (&isLess)(T, T)>
-const std::list<T>& PriorityQueue<T, isLess>::getQueue() {
+const std::list<T>& PriorityQueue<T, isLess>::getQueue() const {
     return queue;
 }
 
