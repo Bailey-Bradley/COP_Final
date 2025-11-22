@@ -58,5 +58,15 @@ bool Vertex::isAdjacentTo(const Vertex& vertex) {
 }
 
 Vertex::~Vertex() {
+    const std::list<Edge*> edge_list = edges.getQueue();
 
+    for (Edge* edge : edge_list) {
+        Vertex& adjacent = *edge->getOpposite(this);
+
+        adjacent.removeEdge(edge);
+
+        removeEdge(edge);
+
+        delete edge;
+    }
 }
