@@ -34,9 +34,13 @@ bool Edge::isEqual(const Edge *const edge) {
 }
 
 bool Edge::isIncidentOn(const Vertex &vertex) {
+    if (&vertex == vertex1 || &vertex == vertex2) {
+        return true;
+    }
 
+    return false;
 }
 
 bool Edge::isIncidentOn(const Vertex *const vertex) {
-
+    return isIncidentOn(*vertex);
 }
