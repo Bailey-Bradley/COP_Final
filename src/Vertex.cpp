@@ -3,7 +3,7 @@
 
 const std::string& Vertex::getLabel() { return label; }
 
-const PriorityQueue<Edge*, Edge::Comparator>& Vertex::getEdges() {
+const PriorityQueue<Edge*, isLessPriority>& Vertex::getEdges() {
     return edges;
 }
 
@@ -56,6 +56,10 @@ bool Vertex::isAdjacentTo(const Vertex& vertex) {
 
     return false;
 }
+
+Vertex::Vertex() : label("INVALID"), edges(PriorityQueue<Edge*, isLessPriority>()) {}
+
+Vertex::Vertex(std::string label) : label(label) {}
 
 Vertex::~Vertex() {
     const std::list<Edge*> edge_list = edges.getQueue();
