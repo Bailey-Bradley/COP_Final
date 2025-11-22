@@ -1,6 +1,62 @@
 #include "Vertex.h"
+#include "Edge.h"
 
+const std::string& Vertex::getLabel() { return label; }
 
-const std::string& Vertex::getLabel() {
-    return label;
+const PriorityQueue<Edge*, Edge::Comparator>& Vertex::getEdges() {
+    return edges;
+}
+
+Edge* Vertex::getEdge(std::string label) {
+    const std::list<Edge*> edge_list = edges.getQueue();
+
+    for (Edge* edge : edge_list) {
+        Vertex& adjacent = *edge->getOpposite(this);
+
+        if (adjacent.label == label) {
+            return edge;
+        }
+    }
+
+    return nullptr;
+}
+
+Edge* Vertex::getEdge(const Vertex& vertex) {
+    const std::list<Edge*> edge_list = edges.getQueue();
+
+    for (Edge* edge : edge_list) {
+        Vertex& adjacent = *edge->getOpposite(this);
+
+        if (adjacent.label == vertex.label) {
+            return edge;
+        }
+    }
+
+    return nullptr;
+}
+
+void Vertex::addEdge(Edge* edge) {
+    edges.enqueue(edge);
+}
+
+void Vertex::removeEdge(Edge* edge) {
+    edges.remove(edge);
+}
+
+bool Vertex::isAdjacentTo(const Vertex& vertex) {
+    const std::list<Edge*> edge_list = edges.getQueue();
+
+    for (Edge* edge : edge_list) {
+        Vertex* adjacent = edge->getOpposite(this);
+
+        if (adjacent == &vertex) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+Vertex::~Vertex() {
+
 }
