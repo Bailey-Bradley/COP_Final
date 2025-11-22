@@ -1,13 +1,17 @@
 
-
 class Edge {
 
     Vertex* vertex1;
     Vertex* vertex2;
 
-    unsigned long cost;
+    unsigned long weight;
 
 public:
+
+    class Comparator {
+        bool operator()(const Edge* const edge1, const Edge* const edge2) const;
+        bool operator()(const Edge& edge1, const Edge& edge2) const;
+    };
 
     Edge(Vertex*, Vertex*, unsigned long);
 
