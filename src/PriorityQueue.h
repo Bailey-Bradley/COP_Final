@@ -11,4 +11,5 @@ public:
     void enqueue(T);
     T dequeue();
 
+    const std::list<T>& getQueue();
 };

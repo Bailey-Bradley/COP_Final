@@ -13,3 +13,8 @@ T PriorityQueue<T, C>::dequeue() {
 
     return *lowest_priority;
 }
+
+template<typename T, typename C>
+const std::list<T>& PriorityQueue<T, C>::getQueue() {
+    return queue;
+}
