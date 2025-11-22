@@ -59,7 +59,7 @@ bool Vertex::isAdjacentTo(const Vertex& vertex) {
 
 Vertex::Vertex() : label("INVALID"), edges(PriorityQueue<Edge*, isLessPriority>()) {}
 
-Vertex::Vertex(std::string label) : label(label) {}
+Vertex::Vertex(std::string label) : label(label), edges(PriorityQueue<Edge*, isLessPriority>()) {}
 
 Vertex::~Vertex() {
     const std::list<Edge*> edge_list = edges.getQueue();
