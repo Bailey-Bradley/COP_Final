@@ -1,3 +1,4 @@
+#pragma once
 
 class Vertex;
 
@@ -8,11 +9,6 @@ public:
     Vertex* vertex2;
 
     unsigned long weight;
-
-    class Comparator {
-        bool operator()(const Edge* const edge1, const Edge* const edge2) const;
-        bool operator()(const Edge& edge1, const Edge& edge2) const;
-    };
 
     Edge(Vertex*, Vertex*, unsigned long);
 
@@ -27,3 +23,5 @@ public:
     bool isIncidentOn(const Vertex& vertex);
     bool isIncidentOn(const Vertex* const vertex);
 };
+
+bool isLessPriority(Edge* edge1, Edge* edge2);
