@@ -121,6 +121,8 @@ void vertexPathToStrings(std::vector<std::string>& string_array, std::vector<Ver
 }
 
 unsigned long Graph::shortestPath(std::string startLabel, std::string endLabel, std::vector<std::string> &path) {
+    
+    path.clear(); // If caller reuses the same vector we clear it 
 
     std::vector<VertexPathNode> processed;
 
