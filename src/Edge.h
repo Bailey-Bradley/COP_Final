@@ -1,3 +1,11 @@
+/* 
+Edge.h:
+
+Declares Edge class that holds a weighted connection between two vertices
+
+Uses pointers for the vertices, finds adjacent vertices, checks cost, and applies a comparator function
+*/
+
 #pragma once
 
 class Vertex;

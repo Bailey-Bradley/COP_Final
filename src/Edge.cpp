@@ -1,6 +1,10 @@
-// Edge.cpp:
-// Performs Dijstra's shortest path
-// This file constructs an edge that connected vertices, determines incidence, and compares edge weights
+/*
+Edge.cpp:
+
+Performs Dijstra's shortest path
+
+This file constructs an edge that connected vertices, determines incidence, and compares edge weights
+*/
 #include "Edge.h"
 #include "Vertex.h"
 
