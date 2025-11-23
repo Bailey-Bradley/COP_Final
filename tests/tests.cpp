@@ -104,7 +104,7 @@ TEST_CASE("Final Project Test Cases for Dijkstra's Algorithm") {
 
         g.shortestPath("A","D", path);
 
-        REQUIRE(path == std::vector<std::string>{"B","C","D"});
+        REQUIRE(path == std::vector<std::string>{"A","B","C","D"});
     }
 
     SECTION("Output should update when an edge is removed") {
