@@ -32,8 +32,14 @@ void Graph::addEdge(std::string label1, std::string label2,
     Vertex &vertex1 = vertices[label1];
     Vertex &vertex2 = vertices[label2];
 
-    if (vertex1.isAdjacentTo(vertex2))
+    Edge *existing = vertex1.getEdge(vertex2);
+//checks monkey
+    if (existing) {
+        if (weight < existing->weight) {
+            existing->weight = weight;
+        }
         return;
+    }
 
     // Creates new edge to add to vertices
     Edge *newEdge = new Edge(&vertex1, &vertex2, weight);

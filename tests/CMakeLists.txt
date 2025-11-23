@@ -6,9 +6,16 @@ file(GLOB APP_SRC "${CMAKE_SOURCE_DIR}/src/*.cpp")
 
 list(REMOVE_ITEM APP_SRC "${CMAKE_SOURCE_DIR}/src/main.cpp")
 
-add_executable(tests ${TEST_SRC} ${APP_SRC})
+list(APPEND TEST_SRC ${APP_SRC})
 
-target_include_directories(tests PRIVATE
-    "${CMAKE_SOURCE_DIR}/src"
-    "${CMAKE_SOURCE_DIR}/tests"
+add_executable(tests ${TEST_SRC})
+target_include_directories(tests PRIVATE "${CMAKE_SOURCE_DIR}/src" "${CMAKE_SOURCE_DIR}/tests")
+
+add_custom_command(
+    TARGET tests
+    POST_BUILD
+    COMMAND tests --success
 )
+
+unset(TEST_SRC)
+unset(APP_SRC)
