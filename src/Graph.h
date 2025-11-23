@@ -28,7 +28,7 @@ public:
     // Ensures the edges aren't already connected.
     // If they aren't yet connected, give a pointer to the edge object to both via addEdge()
     // (could use isAdjacentTo() on the vertices to determine if they're connected? or just iterate over every edge in one vertex
-    // and see if one of the vertex1's or vertex2's of either refers to the other vertex? the isAdjacentTo() way is cleaner tho)
+    // and see if one of the vertex1's or vertex2's of either refers to the other vertex
     void addEdge(std::string label1, std::string label2, unsigned long weight) override;
 
     // Vertices automatically disconnect to other vertices via their destructor so literally just remove the vertex from the map here
