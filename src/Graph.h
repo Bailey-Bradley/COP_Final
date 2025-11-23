@@ -1,3 +1,11 @@
+/*
+Graph.h:
+
+This class takes in GraphBase and handles vertices that are identified and stored
+
+Adds & removes vertices/edges and calculates shortest path
+
+*/
 #pragma once
 
 #include <vector>
@@ -24,7 +32,6 @@ public:
     void addEdge(std::string label1, std::string label2, unsigned long weight) override;
 
     // Vertices automatically disconnect to other vertices via their destructor so literally just remove the vertex from the map here
-    // I think?
     void removeVertex(std::string label) override;
 
     // Check if both vertices are actually adjacent via isAdjacentTo()
