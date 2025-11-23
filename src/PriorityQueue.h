@@ -1,3 +1,8 @@
+/*
+PriorityQueue.h:
+
+This file is simply a priority queue implementation
+*/
 #pragma once
 
 #include <algorithm>
@@ -6,6 +11,7 @@
 template<typename T, bool (&isLess)(T, T)>
 class PriorityQueue {
 
+    // Container holding queued objects
     std::list<T> queue;
 
 public:
