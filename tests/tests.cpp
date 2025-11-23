@@ -45,7 +45,7 @@ TEST_CASE("Final Project Test Cases for Dijkstra's Algorithm") {
         REQUIRE(g.shortestPath("A","C", path) == 1);
     }
 
-    SECTION("Should return 0 when the edges have 0 weight") {
+    SECTION("Should return 0 when the edges have zero weight") {
         g.addVertex("A");
         g.addVertex("B");
         g.addVertex("C");
@@ -59,7 +59,21 @@ TEST_CASE("Final Project Test Cases for Dijkstra's Algorithm") {
         REQUIRE(g.shortestPath("A","C", path) == 0);
     }
 
-    SECTION("") {
-        
+    SECTION("Vertex should return 0 when pathing to itself") {
+        g.addVertex("A");
+        std::vector<std::string> path;
+
+        REQUIRE(g.shortestPath("A","A", path) == 0);
+    }
+
+    SECTION("Should return lowest edge weight when two vertexes have multiple edges") {
+        g.addVertex("A");
+        g.addVertex("B");
+        g.addEdge("A","B",3);
+        g.addEdge("A","B",2);
+        g.addEdge("A","B",1);
+        std::vector<std::string> path;
+
+        REQUIRE(g.shortestPath("A","B", path) == 1);
     }
 }
