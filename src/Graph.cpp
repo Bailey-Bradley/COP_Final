@@ -96,19 +96,26 @@ void vertexPathToStrings(std::vector<std::string>& string_array, std::vector<Ver
 
     for (VertexPathNode& path_node : vertex_paths) {
         if (path_node.vertex->getLabel() == end_vertex_label) {
-            node = &path_node; 
+            node = &path_node;
+            break; // Break when finding the end node
         }
     }
 
-    while (node->previous_vertex != nullptr) {
-        string_array.push_back(node->vertex->getLabel());
+    while (node != nullptr) {
+    string_array.push_back(node->vertex->getLabel());
 
-        for (VertexPathNode& path_node : vertex_paths) {
-            if (path_node.vertex == node->previous_vertex) {
-                node = &path_node; 
-            }
+    if (node->previous_vertex == nullptr) // Stopping condition
+        break;
+
+    // find the previous node
+    for (VertexPathNode& path_node : vertex_paths) {
+        if (path_node.vertex == node->previous_vertex) {
+            node = &path_node;
+            break;
         }
     }
+}
+
 
     std::reverse(string_array.begin(), string_array.end());
 }
@@ -124,7 +131,7 @@ unsigned long Graph::shortestPath(std::string startLabel, std::string endLabel, 
         vertices.at(startLabel);
         vertices.at(endLabel);
     } catch (const std::out_of_range &e) {
-        return -1; // Return when at least one vertice not found
+        return (unsigned long)-1; // Return when at least one vertex not found
     }
 
     Vertex *startVertex = &vertices[startLabel];
@@ -170,5 +177,5 @@ unsigned long Graph::shortestPath(std::string startLabel, std::string endLabel, 
     }
 
     // Return in case of no path being found
-    return -1;
+    return (unsigned long)-1;
 }
