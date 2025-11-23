@@ -15,7 +15,7 @@ Adds & removes vertices/edges and calculates shortest path
 #include "Vertex.h"
 #include "GraphBase.hpp"
 
-class Graph : GraphBase {
+class Graph : public GraphBase {
 
     std::map<std::string, Vertex> vertices;
 

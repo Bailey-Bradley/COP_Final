@@ -2,6 +2,8 @@
 #include "catch.hpp"
 #include "Graph.h"
 
+// Below are our test cases for testing the functionality of this project
+
 TEST_CASE("Final Project Test Cases for Dijkstra's Algorithm") {
     Graph g;
 

@@ -31,7 +31,7 @@ public:
     Edge* getEdge(std::string label);
     Edge* getEdge(const Vertex& vertex);
 
-    // Pretty much unintelligently just adds the edge pointer to the PQ
+    // Pretty much just adds the edge pointer to the PQ
     void addEdge(Edge*);
 
     // Removes the edge given if it even has it
