@@ -8,6 +8,23 @@ TEST_CASE("Testing the testing") { // Tests if catch is functioning properly
 TEST_CASE("Final Project Test Cases for Dijkstra's Algorithm") {
     Graph g;
 
+    SECTION("Should return the shortest path") {
+        g.addVertex("A");
+        g.addVertex("B");
+        g.addVertex("C");
+        g.addVertex("D");
+        g.addVertex("E");
+        g.addEdge("A","B",4);
+        g.addEdge("A","C",2);
+        g.addEdge("B","C",5);
+        g.addEdge("B","D",10);
+        g.addEdge("C","E",3);
+        g.addEdge("E","D",4);
+        std::vector<std::string> path;
+
+        REQUIRE(g.shortestPath("A","D", path) == 9);
+    }
+
     SECTION("Should return infinity for non-connected vertices") {
         g.addVertex("A");
         g.addVertex("B");
@@ -25,6 +42,24 @@ TEST_CASE("Final Project Test Cases for Dijkstra's Algorithm") {
         g.addEdge("C","A",1);
         std::vector<std::string> path;
 
-        REQUIRE(g.shortestPath("A","C", path) == 2);
+        REQUIRE(g.shortestPath("A","C", path) == 1);
+    }
+
+    SECTION("Should return 0 when the edges have 0 weight") {
+        g.addVertex("A");
+        g.addVertex("B");
+        g.addVertex("C");
+        g.addVertex("D");
+        g.addEdge("A","B",0);
+        g.addEdge("B","C",0);
+        g.addEdge("C","A",0);
+        g.addEdge("C","D",0);
+        std::vector<std::string> path;
+
+        REQUIRE(g.shortestPath("A","C", path) == 0);
+    }
+
+    SECTION("") {
+        
     }
 }
