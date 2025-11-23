@@ -1,5 +1,6 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
+#include "Graph.h"
 TEST_CASE("Testing the testing") { // Tests if catch is functioning properly
     REQUIRE( 1 == 1);
 }
@@ -11,6 +12,5 @@ TEST_CASE("Add Vertices") {
     g.addVertex("B");
     std::vector<std::string> path; // Setting up vector
 
-    REQUIRE(g.shortestPath("A","B", path) == (unsigned long)-1);
-    )
+    REQUIRE(g.shortestPath("A","B", path) == (unsigned long)-1);   
 }
