@@ -32,8 +32,10 @@ void Graph::addEdge(std::string label1, std::string label2,
     Vertex &vertex1 = vertices[label1];
     Vertex &vertex2 = vertices[label2];
 
+    // Searches to see if the edge already exists
     Edge *existing = vertex1.getEdge(vertex2);
-//checks monkey
+
+    // Updates the existing edge if the new one is a smaller weight
     if (existing) {
         if (weight < existing->weight) {
             existing->weight = weight;
