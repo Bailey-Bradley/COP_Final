@@ -11,15 +11,24 @@ TEST_CASE("Final Project Test Cases for Dijkstra's Algorithm") {
         g.addVertex("C");
         g.addVertex("D");
         g.addVertex("E");
-        g.addEdge("A","B",4);
-        g.addEdge("A","C",2);
-        g.addEdge("B","C",5);
-        g.addEdge("B","D",10);
-        g.addEdge("C","E",3);
-        g.addEdge("E","D",4);
+        g.addVertex("F");
+        g.addVertex("G");
+        g.addVertex("H");
+        g.addEdge("A","C",5);
+        g.addEdge("A","B",3);
+        g.addEdge("B","F",5);
+        g.addEdge("B","D",8);
+        g.addEdge("C","E",4);
+        g.addEdge("C","D",2);
+        g.addEdge("F","D",3);
+        g.addEdge("F","H",5);
+        g.addEdge("D","H",10);
+        g.addEdge("E","G",2);
+        g.addEdge("E","H",12);
+        g.addEdge("G","H",1);
         std::vector<std::string> path;
 
-        REQUIRE(g.shortestPath("A","D", path) == 9);
+        REQUIRE(g.shortestPath("A","H", path) == 12);
     }
 
     SECTION("Should return infinity for non-connected vertices") {
