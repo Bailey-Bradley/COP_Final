@@ -1,9 +1,6 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 #include "Graph.h"
-TEST_CASE("Testing the testing") { // Tests if catch is functioning properly
-    REQUIRE( 1 == 1);
-}
 
 TEST_CASE("Final Project Test Cases for Dijkstra's Algorithm") {
     Graph g;
@@ -31,6 +28,13 @@ TEST_CASE("Final Project Test Cases for Dijkstra's Algorithm") {
         std::vector<std::string> path;
 
         REQUIRE(g.shortestPath("A","B", path) == (unsigned long)-1);
+    }
+
+    SECTION("Should return infinity if start vertex does not exist") {
+        g.addVertex("A");
+        std::vector<std::string> path;
+        
+        REQUIRE(g.shortestPath("X","A", path) == (unsigned long)-1);
     }
 
     SECTION("Should return shortest path without getting stuck in a cycle") {
@@ -75,5 +79,36 @@ TEST_CASE("Final Project Test Cases for Dijkstra's Algorithm") {
         std::vector<std::string> path;
 
         REQUIRE(g.shortestPath("A","B", path) == 1);
+    }
+
+    SECTION("Shortest path should fill the path vector correctly") {
+        g.addVertex("A");
+        g.addVertex("B");
+        g.addVertex("C");
+        g.addVertex("D");
+        g.addEdge("A","B",1);
+        g.addEdge("B","C",1);
+        g.addEdge("C","D",1);
+        std::vector<std::string> path;
+
+        g.shortestPath("A","D", path);
+
+        REQUIRE(path == std::vector<std::string>{"B","C","D"});
+    }
+
+    SECTION("Output should update when an edge is removed") {
+        g.addVertex("A");
+        g.addVertex("B");
+        g.addVertex("C");
+        g.addEdge("A","B",12);
+        g.addEdge("B","C",1);
+        g.addEdge("C","A",1);
+        std::vector<std::string> path;
+
+        REQUIRE(g.shortestPath("A","B", path) == 2);
+
+        g.removeEdge("A", "C");
+
+        REQUIRE_FALSE(g.shortestPath("A","B", path) == 2);
     }
 }
