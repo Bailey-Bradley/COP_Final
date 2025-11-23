@@ -1,7 +1,5 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
-// Test cases are implemented here to verify output
-// Testing again
-TEST_CASE("Testing the testing") {
+TEST_CASE("Testing the testing") { // Tests if catch is functioning properly
     REQUIRE( 1 == 1);
 }
