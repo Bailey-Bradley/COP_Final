@@ -16,14 +16,15 @@ class PriorityQueue {
 
 public:
 
-    void enqueue(T);
+    void enqueue(T); // Inserts into queue
 
-    T min();
+    T min(); // Returns smallest element
 
-    T dequeue();
-    void remove(T element);
+    T dequeue(); // Removes then returns smallest element
 
-    int size();
+    void remove(T element); // Removes every single specific element
+
+    int size(); // Provides number of elements
 
     const std::list<T>& getQueue() const;
 };
@@ -40,6 +41,7 @@ void PriorityQueue<T, isLess>::enqueue(T newItem) {
 
 template<typename T, bool (&isLess)(T, T)>
 T PriorityQueue<T, isLess>::min() {
+    // Find element with the least priority
     auto lowest_priority = std::min_element(queue.begin(), queue.end(), isLess);
 
     return *lowest_priority;
@@ -47,8 +49,8 @@ T PriorityQueue<T, isLess>::min() {
 
 template<typename T, bool (&isLess)(T, T)>
 T PriorityQueue<T, isLess>::dequeue() {
-    T lowest_priority = min();
-    queue.remove(lowest_priority);
+    T lowest_priority = min(); // Obtain lowest priority element
+    queue.remove(lowest_priority); // Remove all the same type of element
 
     return lowest_priority;
 }
@@ -60,5 +62,5 @@ const std::list<T>& PriorityQueue<T, isLess>::getQueue() const {
 
 template<typename T, bool (&isLess)(T, T)>
 void PriorityQueue<T, isLess>::remove(T element) {
-    queue.remove(element);
+    queue.remove(element); // Removes all of the same type of element
 }
