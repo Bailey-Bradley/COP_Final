@@ -1,3 +1,8 @@
+/*
+Vertex.h
+
+Defines the vertex class for a weighted graph
+*/
 #pragma once
 
 #include <string>
@@ -10,7 +15,6 @@
 class Vertex {
 
     std::string label;
-    // TODO:
     // Make our own priority queue and use it to store the edges:
     PriorityQueue<Edge*, isLessPriority> edges;
 
@@ -30,7 +34,7 @@ public:
     // Pretty much unintelligently just adds the edge pointer to the PQ
     void addEdge(Edge*);
 
-    // Again, unintelligently removes the edge given if it even has it
+    // Removes the edge given if it even has it
     void removeEdge(Edge*);
 
     bool isAdjacentTo(const Vertex& vertex);

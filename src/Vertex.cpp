@@ -1,3 +1,9 @@
+/*
+Vertex.cpp
+
+Implements vertex class used in graph data structure
+*/
+
 #include "Vertex.h"
 #include "Edge.h"
 
