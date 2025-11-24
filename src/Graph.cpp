@@ -143,7 +143,7 @@ unsigned long Graph::shortestPath(std::string startLabel, std::string endLabel, 
 
     // Loop through vertices in cost order
     while (vertexQueue.size() > 0) {
-        VertexPathNode& vertex_path_node = vertexQueue.min();
+        const VertexPathNode& vertex_path_node = vertexQueue.min();
 
         Vertex *current_vertex = vertex_path_node.vertex;
         unsigned long current_vertex_cost = vertex_path_node.cost;

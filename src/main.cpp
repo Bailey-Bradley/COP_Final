@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "Graph.hpp"
+#include "Graph.h"
 
 // Tests that setup functions as intended
 int main(int, char**){
