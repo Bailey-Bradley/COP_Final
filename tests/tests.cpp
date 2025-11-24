@@ -38,7 +38,15 @@ TEST_CASE("Final Project Test Cases for Dijkstra's Algorithm") {
         g.addVertex("B");
         std::vector<std::string> path;
 
-        REQUIRE(g.shortestPath("A","B", path) == (unsigned long)-1);
+        REQUIRE(g.shortestPath("A","B", path) == (unsigned long)INT_MAX);
+    }
+
+    SECTION("Should return 0 if start and end nodes are the same") {
+        g.addVertex("A");
+        g.addVertex("B");
+        std::vector<std::string> path;
+
+        REQUIRE(g.shortestPath("A","A", path) == (unsigned long)0);
     }
 
     SECTION("Should return infinity if start vertex does not exist") {
