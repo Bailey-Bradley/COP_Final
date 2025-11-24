@@ -179,5 +179,5 @@ unsigned long Graph::shortestPath(std::string startLabel, std::string endLabel, 
     }
 
     // Return in case of no path being found
-    return (unsigned long)-1;
+    return (unsigned long)INT_MAX;
 }
