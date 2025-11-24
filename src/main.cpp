@@ -26,5 +26,5 @@ int main(int, char**){
     }
     std::cout << std::endl;
 
-    return 0;
+    return 0; // End program
 }
